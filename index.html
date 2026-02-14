@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Valentine — Static Demo</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&family=Pacifico&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="scene">
+            <main class="card" role="main">
+                <h1 class="title">Happy Valentine's Day</h1>
+                <p class="subtitle">Click the heart — feel the love 💌</p>
+                <!-- layered single-button (tap/click cycles layers; each layer has its own "story") -->
+                <div class="layered-wrap">
+                    <button id="loveBtn" class="layered-btn" aria-haspopup="dialog" aria-controls="loveModal" aria-describedby="layerStory">
+                        <span class="layer layer-outer" data-layer="4" aria-hidden="true"></span>
+                        <span class="layer layer-mid" data-layer="3" aria-hidden="true"></span>
+                        <span class="layer layer-inner" data-layer="2" aria-hidden="true"></span>
+                        <span class="layer layer-core" data-layer="1" aria-hidden="true"></span>
+
+                        <span class="center">
+                            <span class="btn-heart">❤</span>
+                            <span class="btn-text">Send Love</span>
+                        </span>
+                    </button>
+
+                    <div class="layer-indicator" id="layerIndicator" aria-hidden="true">
+                        <span class="dot active" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                    </div>
+
+                    <div id="layerStory" class="layer-story" aria-live="polite">Tap the button — each tap reveals a new layer of the story.</div>
+                </div>
+
+                <!-- controls (re-added inside the card so mobile users can scroll to them) -->
+                <div class="controls" role="toolbar" aria-label="Interaksi">
+                    <button id="surpriseBtn" class="ctrl-btn accent">Surprise!</button>
+                    <button id="confettiBtn" class="ctrl-btn">Confetti</button>
+                    <button id="musicBtn" class="ctrl-btn">Play Music</button>
+                    <button id="rainBtn" class="ctrl-btn">Heart Rain: On</button>
+                    <button id="themeBtn" class="ctrl-btn">Toggle Theme</button>
+                    <button id="quoteBtn" class="ctrl-btn">Show Quote</button>
+                    <button id="colorBtn" class="ctrl-btn">Random BG</button>
+                    <button id="shareBtn" class="ctrl-btn">Share</button>
+                    <button id="copyBtn" class="ctrl-btn">Copy Msg</button>
+                    <button id="bigTitleBtn" class="ctrl-btn">Big Title</button>
+                </div>
+            </main>
+        </div>
+
+        <div id="loveModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="modal-panel" tabindex="0">
+            <button id="closeModal" class="close" aria-label="Close">✕</button>
+            <div class="envelope" aria-hidden="true">
+                <div class="letter">I ♥ You</div>
+            </div>
+            <h2>You're my favorite person</h2>
+            <p class="modal-text">
+              Kita ketemu dari Instagram, awalnya benar-benar sederhana,<br>
+              cuma saling lihat, saling sapa, tanpa rencana apa-apa.<br>
+              Nggak pernah kepikiran kalau akhirnya kita sampai di momen Valentine seperti sekarang ini.<br><br>
+
+              Walaupun belum genap beberapa bulan, aku ngerasa kehadiran kamu
+              pelan-pelan ngubah hari-hari aku.
+              Ada rasa tenang yang nggak ribut, tapi nyata.
+              Hari yang biasa aja jadi terasa lebih berarti cuma karena kamu ada.<br><br>
+
+              Aku sadar aku bukan tipe orang yang gampang nunjukin perasaan.
+              Aku sering kelihatan cuek, lebih banyak diam, dan jarang ngomong manis.
+              Tapi di balik itu, aku peduli dengan caraku sendiri.
+              Aku merhatiin hal-hal kecil tentang kamu,
+              aku kepikiran kamu tanpa harus bilang,
+              dan aku sering diem-diem mantau story kamu,
+              sekadar buat tahu kamu baik-baik aja hari ini.<br><br>
+
+              Maaf kalau Valentine ini aku nggak bisa kasih coklat atau hal mewah lainnya.
+              Yang bisa aku kasih cuma kejujuran,
+              perasaan yang sederhana tapi tulus,
+              dan kehadiran aku yang mungkin nggak sempurna,
+              tapi sungguh-sungguh.
+            </p>
+            <button id="okBtn" class="ok" data-phone="085117162287" data-wa-msg="Haii . Selamat Valentine Mass 💌">Kirim Pesan</button>
+            </div>
+        </div>
+
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+        <!-- background music (user provided) - autoplay muted for GitHub Pages -->
+        <audio id="bgAudio" src="call_away.mp3" preload="auto" loop autoplay muted playsinline></audio>
+
+        <script defer src="script.js"></script>
+    </body>
+</html>
